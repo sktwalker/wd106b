@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>⚣小藍的秘密基地</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- 自製css -->
+    <link rel="stylesheet" type="text/css" media="screen" href="./asset/css/main.css" />
+        <!-- 引用外部css(fontawesome,用於icon引用) -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <script src="main.js"></script>
+    <!-- firebox 測試 -->
+    <script type="text/javascript" src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+    <!-- jQuery Plugin -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+    <!--js/讀取頁面-->
+    <script>
+        $(window).load(function() { // 確認整個頁面讀取完畢再將這三個div隱藏起來
+        $("#status").fadeOut();
+        $("#loading_txt").fadeOut();
+        $("#preloader").delay(350).fadeOut("slow");
+       })
+
+
+//未成功
+    /*
+    // 初始化資料庫資訊
+     var config = {
+    apiKey: "AIzaSyD9Q6L-y8m2jmnbpXlklfWe4N9l-77fd-w",//API金鑰
+    authDomain: "final-project-223d5.firebaseapp.com",//資料庫域
+    databaseURL: "https://final-project-223d5.firebaseio.com",//資料庫位址
+    projectId: "final-project-223d5",//專案ID
+    storageBucket: "final-project-223d5.appspot.com",//儲存藍
+    messagingSenderId: "538718266255"//訊息傳送ID
+     };
+     firebase.initializeApp(config);//初始化函式
+    */
+    
+</script>
+</head>
+
+<body>
+    <!-- 載入畫面的全螢幕區塊 -->
+        <div id="preloader">
+            <div id="status"><img src="./asset/css/image/loading.gif"/></div>
+            <div id="loading_txt">Loading</div>
+        </div>
+    <!-- 網頁導覽 -->
+        <div id = "nav">
+            <ul>
+                <li><a href="littleblue.html">魔法禁區 <i class="fas fa-magic"></i></a></li>
+                <li><a href="lonely.html">一般人區 <i class="fas fa-suitcase"></i></a></li>
+                <li><a href="liveinkinmen.html">離島手記 <i class="fas fa-feather-alt"></i></a></li>
+            </ul>
+        </div>
+
+    <!--內容-->
+        <div id = "main">
+        <!-- 頁首 -->
+            <section id = "banner">
+                <br/><br/><br/><br/><br/>
+                <h1>⚣<span style="color: rgb(0, 153, 255)">小藍</span>的秘密基地⚣</h1>
+                <br/><br/>
+                <p>魔法少女小藍與普通人架起的私人blog</p>
+                <ul class="continue">
+                    <br/><br/><br/><br/><a href="#galleries" >繼續</a>
+                </ul>
+                </section>
+        
+
+        <!-- 照片 -->
+            <section id="galleries">
+                <div class="gallery">
+                    <header class="special">
+                        <br/>
+                        <h2><b>魔法少女/程設渣渣</b></h2>
+                        <br/><br/>
+                    </header>
+                        <div class="content">
+                            <div class="media">
+                                <a href="lonely.html"><img src="asset/css/image/her.jpg"/></a>
+                            </div>
+                            <div class="media">
+                                <a href="littleblue.html"><img src="asset/css/image/he.jpg"/></a>
+                            </div>
+                        </div>
+                </div>
+            </section>
+
+
+            <!-- 魔法少女的簡介 -->
+            <section id="magic">
+                <div class="gallery">
+                    <header class="description">
+                        <br/><br/><br/>
+                        <h2><b>魔法少女小藍 / 黑色大魔法棒</b></h2>
+                    </header>
+                    <div class="content">
+                        <div class="post">
+                            <br/><br/>
+                            <h3><b>"魔法少女什麼的，只不過是課餘無聊的副業罷了。"</b></h3>
+                            <p><b>"一年四季皆藍衣，眾人皆醉我獨醒"</b><br/>前面那句是他之所以成為小藍的原因，後面那句跟他本人沒有半毛關係...</p>
+                            <br/><br/><br/>
+                        </div>
+                    </div>
+                    <footer>
+                        <br/><br/><br/>
+                        <a href="littleblue.html" class="button big">更多</a>
+                    </footer>
+                </div>
+            </section>
+
+
+            <!--平凡腐女大生-->
+            <section id="funu">
+                <div class="gallery">
+                    <header class="description">
+                        <br/><br/><br/>
+                        <h2><b>凝視遠方 / 腦內幻想大暴走</b></h2>
+                    </header>
+                        <div class="content">
+                            <div class="post">
+                                <br/><br/>
+                                <h3><b>"告訴你我在發呆，是因為如果你知道真相的話會被我嚇跑。"</b></h3>
+                                <p><b>"如果時間能再重來一次，我寧可不要認識她"by某高中同學</b><br/>文靜什麼的，只是你還沒認識她之前的偽裝罷了...</p>
+                                <br/><br/><br/>
+                            </div>
+                        </div>
+                    <footer>
+                        <br/><br/><br/>
+                        <a href="lonely.html" class="button big">更多</a>
+                    </footer>
+                </div>
+            </section>
+
+
+            <!--流放離島的生活手札-->
+            <section id="diary">
+                <div class="gallery">
+                    <header class="description">
+                        <br/><br/><br/>
+                        <h2><b>探險求生 / 放飛自我</b></h2>
+                    </header>
+                    <div class="content">
+                        <div class="post">
+                            <br/><br/>
+                            <h3><b>"那一年，我們成為了大學生。"</b></h3>
+                            <p><b>"忐忑不安中，離鄉背井的我們開始了人生的新階段"</b><br/></p>
+                            <br/><br/><br/>
+                        </div>
+                    </div>
+                    <footer>
+                        <br/><br/><br/>
+                        <a href="liveinkinmen.html" class="button big">更多</a>
+                    </footer>
+                </div>
+            </section>
+
+            <footer class="foot">
+                <p>我們說好要一起歐趴
+                </p>
+            </footer>
+
+
+        </div>
+    </body>
+</html>

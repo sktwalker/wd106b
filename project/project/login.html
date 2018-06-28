@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>⚣小藍的秘密基地⚣ - 登入頁</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 自製css -->
+    <link rel="stylesheet" type="text/css" media="screen" href="./asset/css/main.css" />
+    <!-- 引用外部css(fontawesome,用於icon引用) -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <script src="main.js"></script>
+    <!-- jQuery Plugin -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+    <!--js內容/載入頁-->
+    <script>
+        $(window).load(function() { // 確認整個頁面讀取完畢再將這三個div隱藏起來
+        $("#status").fadeOut();//動畫淡出
+           $("#loading_txt").fadeOut();//載入文本淡出
+        $("#preloader").delay(350).fadeOut("slow");//稍晚一點背景淡出(漸層感XD)
+       })
+
+    </script>
+        <!--js內容-->
+    <script language="javascript">
+        var password = prompt("請輸入登入密碼﹖","")//彈出視窗
+        if (password == 'pas') {//密碼
+        self.location = 'login_t.html'//正確顯示
+        }
+        else {
+        self.location = ''//錯誤
+        }
+        // done hiding -->
+    </script>
+
+</head>
+
+<body>
+        <div id="preloader">
+                <div id="status"><img src="./asset/css/image/loading.gif"/></div>
+                <div id="loading_txt">Loading</div>
+                </div>
+            <!-- 網頁導覽 -->
+            <div id = "nav">
+                    <ul>
+                        <li><a href="homepage.html" class="icon"><i class="fas fa-home"></i> 回到首頁</a></li>
+                        <li><a href="littleblue.html">魔法禁區 <i class="fas fa-magic"></i></a></li>
+                        <li><a href="lonely.html">一般人區 <i class="fas fa-suitcase"></i></a></li>
+                    </ul>
+                </div>
+        
+            <!--內容-->
+                <div id = "main">
+                <!-- 標題 -->
+                    <section id = "topic">
+                        <br/><br/>
+                        <h1><b>登入功能研究中</b></h1>
+                    </section>
+        
+                    帳戶名：
+                    <input type="input" id="userName" name = "" value=""><br/>
+                    密碼:
+                    <input type="input" id="passWord" name = "" value=""><br/>
+                    <button type="button" id="pushBtutton">login</button>
+            
+                    
+        
+        
+        
+                    
+                    
+                    
+                    <footer id = "contect">
+                            <div>
+                                <p>聯繫我們<3</p>
+                                <a href="https://www.facebook.com/profile.php?id=100002465462829"><i class="fab fa-facebook-square"></i><a/>
+                                <a href="https://twitter.com/Kodoku_Olivia"><i class="fab fa-twitter-square"></i><a/>
+                                <a href="https://www.instagram.com/olivianichol68/"><i class="fab fa-instagram"></i><a/>
+                                <a href="mailto:olivianichol68@gmail.com"><i class="far fa-envelope"></i></a>
+                            </div>
+                    </footer>
+                    </div>
+                    <script>
+                                    // 初始化資料庫
+                    // 我的專案id(公開很危險QQ)
+                    var config = {
+                    apiKey: "AIzaSyD9Q6L-y8m2jmnbpXlklfWe4N9l-77fd-w",
+                    authDomain: "final-project-223d5.firebaseapp.com",
+                    databaseURL: "https://final-project-223d5.firebaseio.com",
+                    projectId: "final-project-223d5",
+                    storageBucket: "final-project-223d5.appspot.com",
+                    messagingSenderId: "538718266255"
+                     };
+                     firebase.initializeApp(config);
+               $(document).ready(function() 
+               {
+                   var usnRef = firebase.database().ref('/UserName/')//關聯內容資料夾
+                   var pasRef = firebase.database().ref('/Password/')//關聯內容資料夾
+        
+                   $('#pushBtutton').on('click',function()
+                   {
+                        var usn = $('#userName').val();//取文章名
+                        var pas = $('#passWord').val();//取內容
+        
+                   }
+                )
+                   console.log(usn);
+                   console.log(pas);
+                   usnRef.push({postName:usn})
+                   pasRef.push({postContant:pas})
+               })
+                </script>
+                
+</body>
+
+</html>

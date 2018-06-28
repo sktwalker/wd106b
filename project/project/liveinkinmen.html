@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>⚣小藍的秘密基地⚣ - 離島手記</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- 自製css -->
+    <link rel="stylesheet" type="text/css" media="screen" href="./asset/css/main.css" />
+        <!-- 引用外部css(fontawesome,用於icon引用) -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <script src="main.js"></script>
+    <!-- firebox 測試 -->
+    <script type="text/javascript" src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+    <!-- jQuery Plugin -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+    <!--js/讀取頁面-->
+    <script>
+        $(window).load(function() { // 確認整個頁面讀取完畢再將這三個div隱藏起來
+        $("#status").fadeOut();
+        $("#loading_txt").fadeOut();
+        $("#preloader").delay(350).fadeOut("slow");
+       })
+
+//未成功
+    /*
+    // 初始化資料庫資訊
+     var config = {
+    apiKey: "AIzaSyD9Q6L-y8m2jmnbpXlklfWe4N9l-77fd-w",//API金鑰
+    authDomain: "final-project-223d5.firebaseapp.com",//資料庫域
+    databaseURL: "https://final-project-223d5.firebaseio.com",//資料庫位址
+    projectId: "final-project-223d5",//專案ID
+    storageBucket: "final-project-223d5.appspot.com",//儲存藍
+    messagingSenderId: "538718266255"//訊息傳送ID
+     };
+     firebase.initializeApp(config);//初始化函式
+    */
+    
+</script>
+<!--google api-->
+    <script
+    src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBzE9xAESye6Kde-3hT-6B90nfwUkcS8Yw&sensor=false">
+    /*用runoob的api key*/
+  </script>
+
+<!--Google Map Api-->
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script
+      src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBzE9xAESye6Kde-3hT-6B90nfwUkcS8Yw&sensor=false">
+      /*用runoob的api key*/
+    </script>
+
+      <script>
+      var map;
+      var myCenter = new google.maps.LatLng(24.45,118.35);/*地理中心位子*/
+      var kinman = myCenter;
+      var marker1;/*金門大學*/
+      var marker2;/*陳景蘭洋樓*/
+      var marker3;/*建功嶼*/
+      var marker4;/*得月樓*/
+      var marker5;/*823戰史館*/
+      var marker6;/*中山林*/
+      var marker7;/*成功海防步道*/
+      var marker8;/*總兵署*/
+      var marker9;/*慈湖*/
+      var marker10;/*金道地*/
+      var marker11;/*翟山坑道*/
+      var marker12;/*金門酒廠*/
+      var marker13;/*勇士堡*/
+      var marker14;/*鐵漢堡*/
+      var marker15;/*防雷區公園*/
+      var marker16;/*太湖*/
+
+      /*以下為控制元件的設定*/
+      function HomeControl(controlDiv, MaP) 
+      {
+        controlDiv.style.padding = '5px';//距離地圖邊界位置
+        
+        var controlUI = document.createElement('div');
+        
+        controlUI.style.backgroundColor = 'red';////背景色
+        controlUI.style.border='1px solid';//元件邊界
+        controlUI.style.cursor = 'pointer';//移到此處的滑鼠型態(我寫的是指針->食指凸出來)
+        controlUI.style.textAlign = 'center';//文字的位置
+        controlUI.title = 'Set map to kinman';//當滑鼠放在上方出現的文字
+        
+        controlDiv.appendChild(controlUI);//不寫的話元件不會顯示
+        
+        var controlText = document.createElement('div');
+        
+        controlText.style.fontFamily='Arial,sans-serif';//字型
+        controlText.style.fontSize='12px';//字體大小
+        controlText.style.paddingLeft = '4px';//邊邊大小
+        controlText.style.paddingRight = '4px';//邊邊大小
+        controlText.innerHTML = '<b>Home<b>'//元件的文字
+        
+        controlUI.appendChild(controlText);//不寫的話元件不會顯示
+        /*觸發條件式 -> 當點擊一下*/
+        google.maps.event.addDomListener
+        (
+          controlUI, 'click', function() 
+          {
+            map.setCenter(kinman)
+          }
+        );
+      }
+
+      function initialize() 
+      {
+        var mapDiv = document.getElementById('googleMap');
+        var myOptions = 
+        { 
+          center:myCenter,
+          zoom:11.3,/*可視範圍大小 0:為最大(世界地圖)*/
+          panControl:true,//可用上下左右去操控
+          zoomControl:true,//縮放功能鍵
+          mapTypeControl:true,//允許用戶能在各種不同地圖中做切換
+          scaleControl:true,//地圖比例尺
+          streetViewControl:true,//街景模式
+          overviewMapControl:true,//從一個廣域的視角看整個地圖
+          rotateControl:true,//顯示一個小的圓形，可以用於旋轉地圖
+          /*
+            disableDefaultUI:false(設為true會將全數的預設設定弄消失)
+            但可以再次用以下方式全數開啟
+            panControl:true,
+            zoomControl:true,
+            mapTypeControl:true,
+            scaleControl:true,
+            streetViewControl:true,
+            overviewMapControl:true,
+            rotateControl:true,
+          */
+          mapTypeId:google.maps.MapTypeId.ROADMAP
+          /*
+            roadmap    displays the default road map view. This is the default map type.
+            satellite  displays Google Earth satellite images.
+            hybrid     displays a mixture of normal and satellite views.
+            errain     displays a physical map based on terrain information.
+          */
+        }
+        
+        map = new google.maps.Map(mapDiv, myOptions); 
+        // Create a DIV to hold the control and call HomeControl()
+        var homeControlDiv = document.createElement('div');
+        var homeControl = new HomeControl(homeControlDiv, map);
+        //  homeControlDiv.index = 1;
+        map.controls[google.maps.ControlPosition.TOP_RIGHT].push(homeControlDiv);
+
+        marker1 = new google.maps.Marker/*marker的位子*/
+        (
+          {
+            position:new google.maps.LatLng(24.448193,118.322417),
+            animation:google.maps.Animation.BOUNCE/*做有動畫的*/
+          }
+        );
+        marker2 = new google.maps.Marker
+        (
+          {
+            position:new google.maps.LatLng( 24.43727,118.39009),/*切忌寫法為new google.maps.LatLng(緯度,經度)*/
+            animation:google.maps.Animation.BOUNCE
+          }
+        );
+        marker3 = new google.maps.Marker
+        (
+          {
+            position:new google.maps.LatLng( 24.4270593,118.2998791),
+            animation:google.maps.Animation.BOUNCE
+          }
+        );
+        marker4 = new google.maps.Marker
+        (
+          {
+            position:new google.maps.LatLng(24.4122566,118.2960446),
+            animation:google.maps.Animation.BOUNCE
+          }
+        );
+        marker5 = new google.maps.Marker
+        (
+          {
+            position:new google.maps.LatLng(24.4351695,118.3783619),
+            animation:google.maps.Animation.BOUNCE
+          }
+        );
+        marker6 = new google.maps.Marker
+        (
+          {
+            position:new google.maps.LatLng(24.4406741,118.3500784),
+            animation:google.maps.Animation.BOUNCE
+          }
+        );
+        marker7 = new google.maps.Marker
+        (
+          {
+            position:new google.maps.LatLng(24.4367729,118.4008989),
+            animation:google.maps.Animation.BOUNCE
+          }
+        );
+        marker8 = new google.maps.Marker
+        (
+          {
+            position:new google.maps.LatLng(24.4281156,118.3285088),
+            animation:google.maps.Animation.BOUNCE
+          }
+        );
+        marker9 = new google.maps.Marker
+        (
+          {
+            position:new google.maps.LatLng(24.4666713,118.3074782),
+            animation:google.maps.Animation.BOUNCE
+          }
+        );
+        marker10 = new google.maps.Marker
+        (
+          {
+            position:new google.maps.LatLng(24.4092604,118.2979219),
+            animation:google.maps.Animation.BOUNCE
+          }
+        );
+        marker11 = new google.maps.Marker
+        (
+          {
+            position:new google.maps.LatLng(24.3945267,118.3127847),
+            animation:google.maps.Animation.BOUNCE
+          }
+        );
+        marker12 = new google.maps.Marker
+        (
+          {
+            position:new google.maps.LatLng(24.3991574,118.2972753),
+            animation:google.maps.Animation.BOUNCE
+          }
+        );
+        marker13 = new google.maps.Marker
+        (
+          {
+            position:new google.maps.LatLng(24.4462871,118.2497751),
+            animation:google.maps.Animation.BOUNCE
+          }
+        );
+        marker14 = new google.maps.Marker
+        (
+          {
+            position:new google.maps.LatLng(24.4462871,118.2497751),
+            animation:google.maps.Animation.BOUNCE
+          }
+        );
+        marker15 = new google.maps.Marker
+        (
+          {
+            position:new google.maps.LatLng(24.4468842,118.2553745),
+            animation:google.maps.Animation.BOUNCE
+          }
+        );
+        marker16 = new google.maps.Marker
+        (
+          {
+            position:new google.maps.LatLng(24.437954,118.423475),
+            animation:google.maps.Animation.BOUNCE
+          }
+        );
+
+        
+        
+
+        marker1.setMap(map);/*沒有這行即不顯示marker*/
+        marker2.setMap(map);
+        marker3.setMap(map);
+        marker4.setMap(map);
+        marker5.setMap(map);
+        marker6.setMap(map);
+        marker7.setMap(map);
+        marker8.setMap(map);
+        marker9.setMap(map);
+        marker10.setMap(map);
+        marker11.setMap(map);
+        marker12.setMap(map);
+        marker13.setMap(map);
+        marker14.setMap(map);
+        marker15.setMap(map);
+        marker16.setMap(map);
+      }
+
+      google.maps.event.addDomListener(window, 'load', initialize);
+      /* 使用 event listener 讓地圖在網頁載入完成後再載入。 */
+    </script>
+</head>
+
+<body>
+
+        <div id="preloader">
+        <div id="status"><img src="./asset/css/image/loading.gif"/></div>
+        <div id="loading_txt">Loading</div>
+        </div>
+    <!-- 網頁導覽 -->
+    <div id = "nav">
+            <ul>
+                <li><a href="homepage.html" class="icon"><i class="fas fa-home"></i> 回到首頁</a></li>
+                <li><a href="littleblue.html">魔法禁區 <i class="fas fa-magic"></i></a></li>
+                <li><a href="lonely.html">一般人區 <i class="fas fa-suitcase"></i></a></li>
+            </ul>
+        </div>
+
+    <!--內容-->
+        <div id = "main">
+        <!-- 標題 -->
+            <section id = "topic">
+                <br/><br/>
+                <h1><b>離島手記</b></h1>
+            </section>
+
+            <section id = "gmap">
+                <div>
+                    <h2>我們走過的那些地方</h2><br/><br/>
+                </div>
+
+                <div id="googleMap" style="width:500px;height:380px;"></div>
+                 <!--地圖於網頁版面的大小-->
+                 
+                <div class = "mapPost">
+                    <p ><span style="text-indent:50px;font-size:50px;color:rgb(155, 0, 121);">我</span>們不太喜歡散步，<br/>倒是喜歡打電動，<br/>開學初和同學不太熟識時，<br/>幾乎都是窩在<span style="color: blueviolet">大學宿舍</span>裡，<br/>對<span style="color: blueviolet">尚義機場</span>的方向發呆。 </p>
+                </div>
+                <br/><br/>
+
+
+
+
+                <div class = "post" style="height: 500px;line-height: 20px;clear: both">
+                    <br/><br/><h2>人生第一次待在警局喝茶</h2>
+                    <br/><br/>
+                    
+                    <p style="color:rgb(183, 0, 255) ">
+                        <b style="line-height: 20px">還記得，<br/>
+                        那一天第一次和室友騎K-bike去全聯<br/>
+                        結果腳踏車被偷了。<br/>
+                        於是開始了人生第一次報警，<br/>
+                        第一次坐警車，<br/>
+                        第一被好心的警察杯杯安慰和請喝飲料。<br/>
+                        <br/><br/>
+                        事後元凶騎回原本停腳踏車的地方，<br/>
+                        我們才避免了一開學就損失上千賠償費用的悲劇。<br/></b>
+
+                    </p>
+                </div>
+            </section>
+
+
+
+            
+            
+            
+            <footer id = "contect">
+                    <div>
+                        <p>聯繫我們<3</p>
+                        <a href="https://www.facebook.com/profile.php?id=100002465462829"><i class="fab fa-facebook-square"></i><a/>
+                        <a href="https://twitter.com/Kodoku_Olivia"><i class="fab fa-twitter-square"></i><a/>
+                        <a href="https://www.instagram.com/olivianichol68/"><i class="fab fa-instagram"></i><a/>
+                        <a href="mailto:olivianichol68@gmail.com"><i class="far fa-envelope"></i></a>
+                        <a href="login.html" style="float: right;font-size: 40px"><i class="fas fa-sign-in-alt">登入</i></a>
+                    </div>
+            </footer>
+    </body>
+</html>

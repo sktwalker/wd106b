@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>⚣小藍的秘密基地⚣ - 一般人區</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- 自製css -->
+    <link rel="stylesheet" type="text/css" media="screen" href="./asset/css/main.css" />
+        <!-- 引用外部css(fontawesome,用於icon引用) -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <script src="main.js"></script>
+    <!-- firebox 測試 -->
+    <script type="text/javascript" src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+    <!-- jQuery Plugin -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js"></script>
+    <!--js/讀取頁面-->
+    <script>
+        $(window).load(function() { // 確認整個頁面讀取完畢再將這三個div隱藏起來
+        $("#status").fadeOut();
+        $("#loading_txt").fadeOut();
+        $("#preloader").delay(350).fadeOut("slow");
+       })
+
+        //能力頁動畫-->視窗在滑鼠移動後1000毫秒淡入
+       $(window).mousemove(function(){//當滑鼠在視窗內移動
+       $(".ability ").delay(1000).fadeIn("slow");//區塊延遲淡入
+       })
+        //頁標點擊動畫-->文件載入後
+       $(document).ready(function(){//文件載入完成時
+
+        $(".f1").click(function(){//點擊興趣1
+        $("#read").slideUp("fast");
+        $("#fix").slideUp("fast");
+        $("#draw").slideUp("fast");
+        $("#program").slideDown("slow");//內容淡入
+    });
+        $(".f2").click(function(){//點擊興趣2
+        $("#program").slideUp("fast");
+        $("#read").slideUp("fast");
+        $("#draw").slideUp("fast");
+        $("#fix").slideDown("slow");//內容淡入
+    });
+        $(".f3").click(function(){//點擊興趣1
+        $("#program").slideUp("fast");
+        $("#fix").slideUp("fast");
+        $("#read").slideUp("fast");
+        $("#draw").slideDown("slow");//內容淡入
+    });
+
+        $(".f4").click(function(){//點擊興趣4
+        $("#program").slideUp("fast");
+        $("#fix").slideUp("fast");
+        $("#draw").slideUp("fast");
+        $("#read").slideDown("slow");//內容淡入
+    });
+        });
+        
+
+//未成功
+    /*
+    // 初始化資料庫資訊
+     var config = {
+    apiKey: "AIzaSyD9Q6L-y8m2jmnbpXlklfWe4N9l-77fd-w",//API金鑰
+    authDomain: "final-project-223d5.firebaseapp.com",//資料庫域
+    databaseURL: "https://final-project-223d5.firebaseio.com",//資料庫位址
+    projectId: "final-project-223d5",//專案ID
+    storageBucket: "final-project-223d5.appspot.com",//儲存藍
+    messagingSenderId: "538718266255"//訊息傳送ID
+     };
+     firebase.initializeApp(config);//初始化函式
+    */
+    
+</script>
+</head>
+
+<body>
+    <!-- 載入畫面 -->
+        <div id="preloader">
+        <div id="status"><img src="./asset/css/image/loading.gif"/></div>
+        <div id="loading_txt">Loading</div>
+        </div>
+    <!-- 網頁導覽 -->
+    <div id = "nav">
+            <ul>
+                <li><a href="homepage.html" class="icon"><i class="fas fa-home"></i> 回到首頁</a></li>    <!-- 網頁導覽選項 -->
+                <li><a href="littleblue.html">魔法禁區 <i class="fas fa-magic"></i></a></li>
+                <li><a href="liveinkinmen.html">離島手記 <i class="fas fa-feather-alt"></i></a></li>
+            </ul>
+        </div>
+
+    <!--內容-->
+        <div id = "main">
+        <!-- 標題 -->
+            <section id = "topic">
+                <br/><br/>
+                <h1><b>一般人區</b></h1>
+            </section>
+
+        <!-- 個人的的詳細介紹 -->
+            <section id="introduction">
+                <div class="gallery">
+                    <header class="description">
+                        <br/><br/><br/>
+                        <h2><b>資工底端小渣渣/陳昱瑛</b></h2>
+                    </header>
+                    <div class="content">
+                        <div class="post she">
+                            <br/><br/>
+                            <h2><b>個人簡歷</b></h2><br/>
+                            <h3><b>高中</b><br/></h3>
+                            <ul>
+                                <li>台北市立中正高中 資訊研究社 副社長</li>
+                                <li>李梅樹紀念館資訊小組 前端見習生</li>
+                                <li>曾參與兩次APCS</li>
+                                <li>曾參與兩次台北市程式能力競賽</li>
+                            </ul>
+                            <h3><b>大學</b><br/></h3>
+                            <ul>
+                                <li>班級衛生股長</li>
+                                <li>金門大學空氣槍營隊 副召集兼美術宣傳</li>
+                                <li>取得稱號"<span style = "color: red">絕世腐女</span>"</li>
+                            </ul>
+                            <br/><br/><br/>
+                        </div>
+                        <br/><br/><br/>
+
+        <!-- 個人的的能力圖表 -->
+
+                        </div>
+                        <div class = "ability">
+                                <h2>戰力值分析</h2>
+                                <div class = "photo">
+                                    <img src="asset/css/image/her2.jpg"/>
+                                </div>
+                                <br/>
+                                <h3>程式能力</h3>
+                                <br/>
+                                <p>C/C++</p>
+                                <div class = "bar">
+                                        <div class="value p70"></div>
+                                </div>
+                                <p>C#</p>
+                                <div class = "bar">
+                                        <div class="value p20"></div>
+                                </div>
+                                <p>JavaScript</p>
+                                <div class = "bar">
+                                        <div class="value p30"></div>
+                                </div>
+                                <p>html</p>
+                                <div class = "bar">
+                                        <div class="value p50"></div>
+                                </div>
+                                <p>Ruby</p>
+                                <div class = "bar">
+                                        <div class="value p20"></div>
+                                </div>
+                                <p>Python</p>
+                                <div class = "bar">
+                                        <div class="value p10"></div>
+                                </div>
+                        </div>
+                    </div>
+
+        <!-- 彈性盒子效果/擅長/喜好 -->
+
+                </div>
+            </section>
+            <div><br/><br/><br/><br/><br/><br/></div>
+            <section id = "intristing">
+                    <div class = "ability">
+                        <div class="post">
+                            <br/><br/><br/>
+                            <h2>能力/喜好</h2>
+                            <br/><br/>
+                            <div class = "intrisflex">
+                                    <div class="flex-item f1"><a href="#program" style="color: black"><span style="color: rgb(108, 9, 189)"><i class="fas fa-code"></i></span><br/><br/><b><br/>程式撰寫</a></b></div>
+                                    <div class="flex-item f2"><a href="#fix" style="color: black"><span style="color: rgb(108, 9, 189)"><i class="fas fa-wrench"></i></span><br/><br/><b><br/>簡單修理</a></b></div>
+                                    <div class="flex-item f3"><a href="#draw" style="color: black"><span style="color: rgb(108, 9, 189)"><i class="fas fa-paint-brush"></i></span><br/><br/><b><br/>繪圖寫作</a></b></div>
+                                    <div class="flex-item f4"><a href="#read" style="color: black"><span style="color: rgb(108, 9, 189)"><i class="fab fa-leanpub"></i></span><br/><br/><b><br/>閱讀書籍</b></a></div>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+<!-- 作品區/個人特色區 -->
+            <section id = "program">
+                    <div class="#d">
+                        <br/><br/><br/>
+                        <h2>程式作業</h2>
+                        <br/><br/>
+                        <h3>C# 計算機</h3>
+                        <a href="https://gist.github.com/sktwalker/efa0fa429a37629b0e3def7b4632df9a" style="font-size: 50px;color: blueviolet"><i class="fas fa-code"></i></a>
+                        <h3>HTML 期中元素練習作業</h3>
+                        <a href="https://gist.github.com/sktwalker/1a0a51cc96e6c1a44d7fa7d0d1febf45" style="font-size: 50px;color: blueviolet"><i class="fas fa-code"></i></a>
+                        <h3>CSS 期末自製</h3>
+                        <a href="https://gist.github.com/sktwalker/f263dcbd0324d74c7b08873b3f91af68" style="font-size: 50px;color: blueviolet"><i class="fas fa-code"></i></a>
+                        </ul>
+                        <br/><br/><br/>
+                    
+                    </div>
+
+            </section>
+<!--硬體區-->
+            <section id = "fix" style="height: 1400px;">
+                    <div class="#d">
+                        <br/><br/><br/>
+                        <h2>修理</h2>
+                        <br/><br/>
+                    <div class = "whyRead" style="line-height: 50px;height: 1100px;">   
+                        <ul >
+                            <li><b>簡單的水龍頭更換</b></li>
+                            <p class ="killGet">會有這項技能完全就是個意外，<br/>有一天在埋頭打電動時，<br/>頑皮的弟弟竟然把水龍頭弄壞了。<br/>水不停的流，<br/>為了能安靜地打電動，<br/>我翻了翻網路資料，<br/>快速的學習了裝卸技巧。<br/></p>
+                            <li><b>簡單的桌機拆解/更換零件</b></li>
+                            <p class ="killGet">為了在故障時自己修電腦好用來打電動，<br/>我學會了拆卸桌機零組件。</p>
+                            <li><b>簡單的筆電拆解</b></li>
+                            <p class ="killGet">因為某次吃藥時杯子倒了，<br/>水濺到了杯子上，<br/>為了守護我的期末報告，<br/>我學會了拆筆電背板。</p>
+                            <li><b>簡單的修玩具</b></li>
+                            <p class ="killGet">身為家族最大的長女，<br/>修理玩具哄堂弟們是基本技能</p>
+                        </ul>
+
+                        <br/><br/><br/>
+                    
+                    </div>
+            </section>
+
+<!--設計區-->
+
+            <section id = "draw">
+                    <div class="work">
+                        <br/><br/><br/>
+                        <h2>設計作品</h2>
+                        <br/><br/>
+                        <b style="left:200px;">營隊宣傳海報</b><br/>
+                        <br/>
+                            <div class="intrisflex"style="height: 600px;left: 550px;">
+                                <img  src="./asset/css/image/poster.png"/>
+                            </div>
+                            <br/><br/><br/>
+                        
+                    </div>
+            </section>
+
+<!--閱讀區-->
+            <section id = "read">
+                    
+                            <h2 class = "clickabletopic">閱讀書籍</h2>
+                <div class="resonForRead">
+                            
+                            <h3 class = "clickabletopic">喜歡看書的原因</h3>
+                            <div class="whyRead  hiddencontent">
+                            <p>小時候父母太忙碌<br/>為了不讓自己成為麻煩<br/>我開始翻起了書<br/>在腦中想像故事中的場景和角色<br/>不知不覺就這麼養成了看書的習慣<br/>不過這是個不良示範<br/>家長請勿模仿。</p>
+                            </div>
+                        </div>
+                <div class="recommend">
+                    <br/><br/><br/>
+                    <h3>推薦書單</h3>
+                    <br/><br/>
+                    <div class="recommendList">
+                    <ul>
+                        <li><b class = "clickabletopic">失控的邏輯課(推理偵探)</b></li>
+                        <p  class=" hiddencontent more">如果無法解開教授設計的作業<br/>
+                            這門課不僅將以死當收場 <br/>
+                            還要賠上一條陌生女孩的性命！</p>
+                        <li><b class = "clickabletopic">望日(虛擬遊戲)</b></li>
+                        <p class=" hiddencontent more">
+                            或許她給自己取名為「望日」，<br/>
+                            還有第三重意義。<br/>
+                            看望守護燦爛如陽者。
+                        <li><b class = "clickabletopic">荒厄(奇幻妖異)</b></li>
+                        <p class=" hiddencontent more">
+                            我的人生宛如真名一般，林間薰風，飄萍無根。<br/>
+                            但在風之上，有隻黑霧構成、翅緣滲金的厄鳥，隨風飛翔。<br/>
+                            荒厄就是我，我就是荒厄。那樣荒唐不可置信，卻是我生命的一部分。</p>
+                    </ul>
+                    </div><br/><br/><br/>
+                </div>
+            </section>
+<!--聯繫選項-->
+<footer id = "contect">
+    <div>
+        <p>聯繫我們<3</p>
+        <a href="https://www.facebook.com/profile.php?id=100002465462829"><i class="fab fa-facebook-square"></i><a/>
+        <a href="https://twitter.com/Kodoku_Olivia"><i class="fab fa-twitter-square"></i><a/>
+        <a href="https://www.instagram.com/olivianichol68/"><i class="fab fa-instagram"></i><a/>
+        <a href="mailto:olivianichol68@gmail.com"><i class="far fa-envelope"></i></a>
+        <a href="login.html" style="float: right;font-size: 40px"><i class="fas fa-sign-in-alt">登入</i></a>
+    </div>
+</footer>
+    </body>
+</html>
+
+<!--C# <script src="https://gist.github.com/sktwalker/efa0fa429a37629b0e3def7b4632df9a.js"></script>-->
+<!-- HTML <script src="https://gist.github.com/sktwalker/1a0a51cc96e6c1a44d7fa7d0d1febf45.js"></script>-->
+<!-- CSS<script src="https://gist.github.com/sktwalker/f263dcbd0324d74c7b08873b3f91af68.js"></script>-->
