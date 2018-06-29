@@ -1,0 +1,403 @@
+
+/* 全元素套用 */
+* 
+{
+    margin: 0px,0px,20px,0px;
+    padding: 0;
+}
+
+html
+{
+    height:100%; /*頁面高度*/
+}	 
+
+body
+{
+    line-height: 1;/* 行高預設 */
+    margin: 0;
+    padding: 0;
+    min-height: 100%; /*瀏覽器視窗大小更動時進行處理*/
+    position: relative;/*相對位置*/
+    background:rgb(243, 203, 255);
+    font-family:"微軟雅黑體","Microsoft YaHei","Microsoft JhengHei","Times New Roman",Georgia,Serif;/* 內容字體，若缺少則順位遞補 */
+    text-align:center;
+}
+
+li, ol ,ul/*列表元素*/ 
+{
+    list-style: none;/* 去除清單標頭圖示 */
+}
+div 
+{
+    margin:0;
+}
+/* 導覽區塊 */
+div#nav
+{
+    position: fixed;/* 固定nav位置 */
+    margin: 0;
+    padding:0px 10px;
+    color: rgb(194, 227, 255);/*字體色*/
+    background-color: rgb(133, 25, 255);
+    height:800px;/*元素高度*/
+    text-align:left;/*字體靠左*/
+    font-size: 20px;
+    line-height: 80px;
+    
+}
+/* 首頁個人照設置 */
+div.media
+{
+    
+	float:right;
+	width:700px;
+	height:600px;
+    margin:5px,25px,5px,25px;
+
+}
+/* 首頁頁首區塊 */
+section#banner
+{
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background-image:url('image/topback.jpg');/* 頁首背景圖套用 */
+    background-color:rgba(49, 52, 255, 0.582);
+    height: 600px;
+    color:white;
+    font-size: 20pt;
+    text-align:center;
+}
+/*頁首圖片區*/
+section#galleries
+{
+    padding: 20px;
+    clear:both;/* 避免與圖案穿插導致混亂 */
+}
+section#magic,section#funny/* 避免與圖案與其他區塊穿插導致混亂 */
+{
+    padding: 20px;
+    clear:both;
+}
+section#diary{padding: 20px;}
+a /*連結初始化*/
+{
+    text-decoration: none;/* 無文本裝飾(去掉連結底線) */
+    color: rgb(255, 255, 255) 0, 255;
+
+}
+/*連結僞類*/
+a:link {color:rgb(255, 255, 255);} /* 未訪問的連結 */
+a:visited {color:rgba(255, 255, 255, 0.836);} /* 已訪問的連結 */
+a:hover {color:rgb(173, 110, 255);} /* 滑鼠滑過 */
+a:active {color:rgb(121, 121, 255);} /* 滑鼠點擊 */
+/*滑鼠經過圖片區的特效*/
+.media:hover
+{
+    width: 750px;/*元素寬*/
+    transform: scale(1.05,1.05);/*延長動畫:長 = 原*1.05倍，寬 = 原*1.05倍*/
+    transition-duration: 1s;/*動畫時間*/
+}
+/*"更多"按鈕*/
+a.button
+{
+
+    border-radius: 5px;/*區塊角變成圓弧*/
+    font-weight: 100;
+    line-height: 20px;
+    background-color: rgba(162, 0, 255, 0.904);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;/*小塊*/
+    font-size: 16px;
+}
+/*貼文*/
+div.post
+{
+    
+    border-radius: 30px;
+    padding: 50px,0px;
+    background: rgba(206, 123, 255, 0.384);
+    font-weight: 100;
+    line-height: 20px;
+}
+/*能力區設定*/
+.post h3, #read h2 ,#draw h2 ,#fix h2,#program h2
+{
+    font-family:"Microsoft JhengHei","Times New Roman",Georgia,Serif;
+    color: rgb(79, 0, 153);
+}
+#read h2 ,#draw h2 ,#fix h2,#program h2
+{
+    font-size: 30px;
+}
+/*載入頁面設定*/
+#preloader 
+{
+    /*整個會蓋住畫面的底色色塊*/
+     position: fixed;/*固定定位*/
+     width: 100%;
+     height: 100%;
+     left: 0%;/*貼合視窗左邊*/
+     top: 0%;/*貼合視窗上邊*/
+     background-color: rgb(243, 203, 255);
+     z-index: 100000;/*將層級設置最頂，遮住其他元素*/
+}
+#status 
+{
+    /*中間的gif坐標,畫面置中  */
+     position: fixed;
+     width: 218px;
+     height: 419px;
+     margin-left: -109px;
+     margin-top: -110px;
+     left: 50%;
+     top: 50%;
+     background-color: rgb(243, 203, 255);
+}
+#loading_txt 
+{
+    /*下載的文字區塊*/
+     font-size: 14px;/*字體*/
+     position: fixed;
+     margin-left: -40px;
+     margin-top: -12px;
+     left: 50%;
+     top: 50%
+}
+/*標題區塊*/
+section#topic
+{
+    border: 0;
+    padding: 0;
+    margin: 0;
+    background-color:rgba(173, 49, 255, 0.582);
+    height: 200px;
+    color:white;
+    font-size: 20pt;
+    text-align:center;
+}
+/*能力條繪製*/
+.bar{/*底框線*/
+    width: 500px;
+    height: 30px;
+    border: solid 2px rgba(195, 0, 255, 0.377);/*框線寬2px*/
+    position:relative;/*關係定位*/
+    left: 200px;
+    border-radius: 50px;
+    
+    
+}
+.value/*能力條內填充*/
+{
+    height: 100%;
+    width: 60px;
+    background-color: rgb(195, 0, 255);
+    left: 200px;
+    border-radius: 50px;
+}
+.value.p10{
+    width: 10%;
+  }
+    
+  .value.p20{
+    width: 20%;
+  }
+  .value.p30{
+    width: 30%;
+  }
+  .value.p40{
+    width: 40%;
+  }
+  .value.p50{
+    width: 50%;
+  }
+  .value.p60{
+    width: 60%;
+  }
+  .value.p70{
+    width: 70%;
+  }
+  .value.p80{
+    width: 80%;
+  }
+  .value.p90{
+    width: 90%;
+  }
+  
+  .value.p100{
+    width: 100%;
+  }
+  /*無臉男背景圖*/
+  .post.he
+  {
+    background-image:url('image/bakeforhisins.png');
+    background-repeat:no-repeat;  /*無臉男背景圖不重複*/
+  }
+  /*個人介面照片定位*/
+  .photo
+  {
+    float:right;/*右側漂浮*/
+	width:600px;
+	height:600px;
+    margin:5px,25px,5px,25px;
+  }
+/*個人履歷小標題*/
+.ability h3,  .ability p
+  {
+    text-align: center;
+    color: rgb(79, 0, 153);
+  }
+/*貓咪背景圖*/
+  .post.she
+  {
+    background-image:url('image/bakeforherins.png');
+    background-repeat:no-repeat;
+  }
+/*聯繫區塊底部樣式*/
+  footer.foot
+  {
+      text-align: center;
+      left: 500px;
+      background-color: rgba(111, 0, 255, 0.308);
+      width: 100%;
+      height: 50px;
+      color:rgba(255, 255, 255, 0.397);
+  }
+/*興趣區塊避免混亂*/
+section.intristing
+  {
+      clear: both;
+  }
+/*彈性盒子底部*/
+  .intrisflex {
+    display: flex;
+    position: relative;
+    left: 200px;
+    width: 1250px;
+    height: 250px;
+}
+/*彈性盒子內元素*/
+.flex-item 
+{
+    background-color: rgba(248, 255, 224, 0.582);
+    width: 300px;
+    height: 200px;
+    margin: 5px;
+    border-radius: 30px;
+    font-size:50px;
+    clear: both;
+}
+/*當滑鼠到彈性盒子上*/
+.flex-item:hover
+{
+    width: 750px;
+    transform: scale(1,1.05);/*寬 = 原*1.05*/
+    transition-duration: 1s;
+}
+/*興趣區塊*/
+section#read,section#draw,section#work,section#program,section#fix
+{
+    position: relative;
+    left: 50px;
+    
+}
+/*能力區為淡入動畫先隱藏*/
+.ability
+{
+    display: none;
+    height: 600px;
+}
+/*定義隱藏行高以免內容夾雜*/
+.resonForRead
+{
+    line-height: 50px;
+}
+div.whyRead
+{
+    position: relative;
+    left: 465px;
+    height: 400px;
+    width: 600px;
+    font-size: 20px;
+    border-radius: 30px;
+    background-color: rgba(240, 224, 255, 0.849);
+}
+.recommend ul
+{
+    line-height: 40px;
+}
+div.recommendList
+{
+    height: 500px;
+    position: relative;
+    left: 465px;
+    width: 600px;
+    border-radius: 30px;
+    background-color: rgba(240, 224, 255, 0.849);
+}
+div.recommendList b
+{
+    color: blueviolet;
+}
+footer#contect
+{
+    text-align: center;
+    background-color: rgb(133, 25, 255);
+    width: 100%;
+    height: 100px;
+    color:rgb(255, 255, 255);
+}
+footer#contect a
+{
+    font-size: 50px;
+}
+/*登入按鈕*/
+button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15hipx 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+/*為動畫先隱藏*/
+.hiddencontent.more
+{
+    line-height: 30px;
+}
+#googleMap
+{
+    margin: 50px;
+    float: right;
+
+}
+div.mapPost
+{
+    margin: 100px;
+    float: right;
+    font-size:25px;
+    line-height: 45px;
+    width: 700px;
+
+
+}
+
+
+
+#read , #draw , #fix, #program,#bicycle, #biologic,#game
+{
+    display: none;
+}
+div.code
+{
+    height: 200px;
+    width: 200px;
+}
